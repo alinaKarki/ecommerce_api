@@ -8,10 +8,10 @@ from django.http import HttpRequest, HttpResponseRedirect
 from django.test import RequestFactory
 from django.urls import reverse
 
-from ecommerce_api.users.forms import UserAdminChangeForm
-from ecommerce_api.users.models import User
-from ecommerce_api.users.tests.factories import UserFactory
-from ecommerce_api.users.views import (
+from myproject.users.forms import UserAdminChangeForm
+from myproject.users.models import User
+from myproject.users.tests.factories import UserFactory
+from myproject.users.views import (
     UserRedirectView,
     UserUpdateView,
     user_detail_view,

@@ -1,6 +1,6 @@
 import pytest
 
-from ecommerce_api.users.models import User
+from myproject.users.models import User
 
 pytestmark = pytest.mark.django_db
 
