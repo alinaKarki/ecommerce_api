@@ -1,0 +1,9 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST='postgres'
+POSTGRES_PORT=5432
+POSTGRES_DB='ecommerce_api'
+POSTGRES_USER='myuser'
+POSTGRES_PASSWORD='12345'
+#POSTGRES_USER='AWXVncqPyXMtLTJtljETbCtEnxFXxmBz'
+#POSTGRES_PASSWORD='2wZx7XCzxJJKYyPmKuq7fkW1Sg4lNpZZMrZCZsr3uAJWl9r7GlFqvy1QYjH3M2oL'
