@@ -49,5 +49,7 @@ class UserRegistrationSerializer(serializers.Serializer):
         email = self.validated_data["email"]
         user = User(email=email)
         user.set_password(validated_data["password1"])
+        a = email.split("@")
+        user.username = a[0]
         user.save()
         return user
