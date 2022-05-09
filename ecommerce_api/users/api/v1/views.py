@@ -1,15 +1,14 @@
 from django.contrib.auth import get_user_model
-from rest_framework import status
+from django.utils.decorators import method_decorator
+from django.views.decorators.debug import sensitive_post_parameters
+from rest_framework import generics, status
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-from django.utils.decorators import method_decorator
-from ecommerce_api.users.api.v1.serializers import  UserSerializer
-from django.views.decorators.debug import sensitive_post_parameters
-from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework import status
+
+from ecommerce_api.users.api.v1.serializers import UserSerializer
+
 from .serializers import UserRegistrationSerializer
 
 User = get_user_model()
@@ -54,6 +53,3 @@ class UserRegisterView(generics.CreateAPIView):
             status=status.HTTP_201_CREATED,
             headers=headers,
         )
-
-
-

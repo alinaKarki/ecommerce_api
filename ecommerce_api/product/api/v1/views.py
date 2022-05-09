@@ -3,9 +3,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from yaml import serialize
 
-from ecommerce_api.product.models import CategoryModel,  Invoice,  ProductsModel, Order
-
-from ecommerce_api.product.api.v1.serializers import CategorySerializer, InvoiceSerializer, ProductSerializer, OrderSerializer
+from ecommerce_api.product.api.v1.serializers import (
+    CategorySerializer,
+    InvoiceSerializer,
+    OrderSerializer,
+    ProductSerializer,
+)
+from ecommerce_api.product.models import CategoryModel, Invoice, Order, ProductsModel
 
 # Create your views here.
 
@@ -16,9 +20,9 @@ class CategoryViewSets(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
     def list(self, request):
-        
+
         queryset = CategoryModel.objects.all()
-        #if list of queryset then many=True arguments is passed
+        # if list of queryset then many=True arguments is passed
         serializer = CategorySerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -28,14 +32,14 @@ class CategoryViewSets(viewsets.ModelViewSet):
             serializer.save(category_user=request.category_user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    def destroy(self,request,pk):
+
+    def destroy(self, request, pk):
         id = pk
         queryset = CategoryModel.objects.get(pk=id)
         queryset.delete()
-        return Response({'msg: Successfully deleted'})
+        return Response({"msg: Successfully deleted"})
 
-    def update(self, request,pk) :
+    def update(self, request, pk):
         id = pk
         queryset = CategoryModel.objects.get(pk=id)
         serializer = CategorySerializer(queryset, data=request.data)
@@ -46,7 +50,6 @@ class CategoryViewSets(viewsets.ModelViewSet):
 
 
 class ProductView(APIView):
-
     def get(self, request):
         products = ProductsModel.objects.all()
         # if list of queryset then many=True arguments is passed
@@ -81,9 +84,9 @@ class OrderViewSets(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
 
     def list(self, request):
-        
+
         queryset = Order.objects.all()
-        #if list of queryset then many=True arguments is passed
+        # if list of queryset then many=True arguments is passed
         serializer = OrderSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -93,14 +96,14 @@ class OrderViewSets(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    def destroy(self,request,pk):
+
+    def destroy(self, request, pk):
         id = pk
         queryset = CategoryModel.objects.get(pk=id)
         queryset.delete()
-        return Response({'msg: Successfully deleted'})
+        return Response({"msg: Successfully deleted"})
 
-    def update(self, request,pk) :
+    def update(self, request, pk):
         id = pk
         queryset = CategoryModel.objects.get(pk=id)
         serializer = CategorySerializer(queryset, data=request.data)
@@ -108,4 +111,3 @@ class OrderViewSets(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-       

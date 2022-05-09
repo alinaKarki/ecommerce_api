@@ -1,5 +1,4 @@
 import pytest
-
 from myproject.users.models import User
 
 pytestmark = pytest.mark.django_db

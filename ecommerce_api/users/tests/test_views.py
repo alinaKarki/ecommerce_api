@@ -7,15 +7,10 @@ from django.contrib.sessions.middleware import SessionMiddleware
 from django.http import HttpRequest, HttpResponseRedirect
 from django.test import RequestFactory
 from django.urls import reverse
-
 from myproject.users.forms import UserAdminChangeForm
 from myproject.users.models import User
 from myproject.users.tests.factories import UserFactory
-from myproject.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from myproject.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 

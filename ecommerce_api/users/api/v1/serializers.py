@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
-from rest_framework import serializers
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as VError
+from rest_framework import serializers
 
 User = get_user_model()
 
@@ -9,7 +9,7 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = [ "first_name","last_name","email"]
+        fields = ["first_name", "last_name", "email"]
 
         extra_kwargs = {
             "url": {"view_name": "api:user-detail", "lookup_field": "username"}
@@ -29,7 +29,6 @@ class UserRegistrationSerializer(serializers.Serializer):
         model = User
         fields = ["email"]
 
-  
     def validate(self, data):
         email = data["email"]
         password = data["password1"]
@@ -52,5 +51,3 @@ class UserRegistrationSerializer(serializers.Serializer):
         user.set_password(validated_data["password1"])
         user.save()
         return user
-
-

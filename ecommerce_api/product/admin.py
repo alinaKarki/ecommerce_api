@@ -4,4 +4,3 @@ from .models import CategoryModel
 
 # Register your models here.
 # admin.site.register(ProductModel)
-

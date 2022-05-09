@@ -29,7 +29,6 @@ if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
 
-# dsfhdkjxvl
 # API URLS
 urlpatterns += [
     # API base url

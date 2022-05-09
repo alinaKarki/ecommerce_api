@@ -1,4 +1,5 @@
-from django.contrib.auth.models import UserManager 
+from django.contrib.auth.models import UserManager
+
 
 class UserManager(UserManager):
     use_in_migrations = True
@@ -30,4 +31,3 @@ class UserManager(UserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(email, password, **extra_fields)
-

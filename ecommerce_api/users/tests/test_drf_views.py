@@ -1,6 +1,5 @@
 import pytest
 from django.test import RequestFactory
-
 from myproject.users.api.views import UserViewSet
 from myproject.users.models import User
 

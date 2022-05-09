@@ -3,6 +3,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from .views import UserRegisterView
+
 app_name = "users_api_v1"
 
 router = DefaultRouter()
@@ -11,8 +12,7 @@ router = DefaultRouter()
 
 
 urlpatterns = [
-   
-    path('register/', UserRegisterView.as_view(), name='login'),
+    path("register/", UserRegisterView.as_view(), name="login"),
     # path('auth/refresh-token', TokenRefreshView.as_view(), name='refreshtoken'),
 ]
 
